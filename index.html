@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controle Estudantil</title>
+  <meta name="theme-color" content="#F7FAFF">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="raiz"></div>
+  <noscript>Ative o JavaScript para usar o Controle Estudantil.</noscript>
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="ui.js"></script>
+  <script src="dados.js"></script>
+  <script src="motor.js"></script>
+  <script src="app.js"></script>
+  <script src="ano.js"></script>
+  <script src="inicio.js"></script>
+  <script src="plano.js"></script>
+  <script src="agenda.js"></script>
+  <script src="cronometro.js"></script>
+  <script src="provas.js"></script>
+  <script src="trabalhos.js"></script>
+  <script src="notas.js"></script>
+  <script src="metas.js"></script>
+  <script src="estatisticas.js"></script>
+  <script src="ajustes.js"></script>
+  <script>
+    /* Aviso se algum arquivo não foi enviado ao GitHub (ou está numa versão antiga) */
+    (function () {
+      var testes = [
+        ['config.js',       function () { return typeof APP_CONFIG !== 'undefined'; }],
+        ['api.js',          function () { return typeof Api !== 'undefined'; }],
+        ['ui.js',           function () { return typeof Dialogo !== 'undefined' && typeof addDias !== 'undefined'; }],
+        ['dados.js',        function () { return typeof Dados !== 'undefined'; }],
+        ['motor.js',        function () { return typeof Motor !== 'undefined'; }],
+        ['app.js',          function () { return typeof VIEWS !== 'undefined'; }],
+        ['ano.js',          function () { return typeof viewAno !== 'undefined'; }],
+        ['inicio.js',       function () { return typeof viewInicio !== 'undefined'; }],
+        ['plano.js',        function () { return typeof viewPlano !== 'undefined'; }],
+        ['agenda.js',       function () { return typeof viewAgenda !== 'undefined'; }],
+        ['cronometro.js',   function () { return typeof viewCronometro !== 'undefined'; }],
+        ['provas.js',       function () { return typeof viewProvas !== 'undefined'; }],
+        ['trabalhos.js',    function () { return typeof viewTrabalhos !== 'undefined'; }],
+        ['notas.js',        function () { return typeof viewNotas !== 'undefined'; }],
+        ['metas.js',        function () { return typeof viewMetas !== 'undefined'; }],
+        ['estatisticas.js', function () { return typeof viewEstatisticas !== 'undefined'; }],
+        ['ajustes.js',      function () { return typeof viewAjustes !== 'undefined'; }]
+      ];
+      var faltando = [];
+      testes.forEach(function (t) { try { if (!t[1]()) faltando.push(t[0]); } catch (e) { faltando.push(t[0]); } });
+      if (!faltando.length) return;
+      var d = document.createElement('div');
+      d.setAttribute('role', 'alert');
+      d.style.cssText = 'position:fixed;z-index:99;left:12px;right:12px;top:12px;background:#FDECEF;color:#A12B40;border:2px solid #D6455D;border-radius:14px;padding:14px 18px;font:700 15px/1.4 sans-serif';
+      d.textContent = 'Arquivo(s) faltando ou desatualizado(s) no GitHub: ' + faltando.join(', ') + '. Envie de novo a versão mais recente e aperte Ctrl+F5.';
+      document.body.appendChild(d);
+    })();
+  </script>
+</body>
+</html>
